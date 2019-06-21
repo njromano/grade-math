@@ -1,5 +1,5 @@
-exports.standardDeviation = function (values) {
-    let avg = exports.mean(values);
+export function standardDeviation(values) {
+    let avg = mean(values);
 
     let squareDiffs = values.map(function (value) {
         let diff = value - avg;
@@ -7,17 +7,17 @@ exports.standardDeviation = function (values) {
         return sqrDiff;
     });
 
-    let avgSquareDiff = exports.mean(squareDiffs);
+    let avgSquareDiff = mean(squareDiffs);
         
     let stdDev = Math.sqrt(avgSquareDiff);
     return stdDev;
 };
 
-exports.normalY = function (x, mean, stdDev) {
+export function normalY(x, mean, stdDev) {
     return Math.exp((-0.5) * Math.pow((x - mean) / stdDev, 2));
 }
 
-exports.mean = function (data) {
+export function mean(data) {
     let sum = data.reduce(function (sum, value) {
         return sum + value;
     }, 0);
@@ -26,13 +26,13 @@ exports.mean = function (data) {
     return mean;
 };
 
-exports.zScore = function (value, avg, stdDev) {
+export function zScore(value, avg, stdDev) {
     return (value - avg) / stdDev;
 };
 
-var range = require('lodash.range');
+import range from 'lodash.range';
 
-exports.generatePoints = function (stdDev, mean) {
+export function generatePoints(stdDev, mean) {
     let min = Math.floor(mean - 4 * stdDev);
     let max = Math.ceil(mean + 4 * stdDev);
     let unit = (max - min) / 100;
