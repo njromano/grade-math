@@ -1,6 +1,9 @@
 # grade-math
 An npm package with some helpful math functions for calculating grade statistics.
 
+## Usage
+`import { standardDeviation, normalY, mean, zScore, generatePoints } from 'grade-math'`
+
 ## Functions
 `data` in this context means an array of numbers.
 
